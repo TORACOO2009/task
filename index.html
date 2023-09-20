@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Tareas</title>
+    <script>
+// JavaScript
+document.addEventListener("DOMContentLoaded", function () {
+    const taskForm = document.getElementById("taskForm");
+    const taskInput = document.getElementById("taskInput");
+    const taskList = document.getElementById("taskList");
+
+    taskForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // Evita que el formulario se envíe
+
+        const taskText = taskInput.value.trim();
+        if (taskText !== "") {
+            const taskItem = document.createElement("li");
+            taskItem.textContent = taskText;
+            taskList.appendChild(taskItem);
+
+            // Puedes agregar aquí la lógica para guardar la tarea en una base de datos.
+            
+            taskInput.value = ""; // Limpia el campo de entrada
+        }
+    });
+});
+
+
+
+
+    </script>
+    <style>
+
+/* Estilos para el cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(to right, #0aa9e7, #732e88);
+}
+
+/* Encabezado */
+h1 {
+    text-align: center;
+    background-color: #060aff;
+    color: #fff;
+    padding: 20px 0;
+    margin: 0;
+}
+
+/* Formulario */
+#taskForm {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#taskInput {
+    width: 70%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: none;
+}
+
+#taskInput:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+button[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+/* Lista de tareas */
+#taskList {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#taskList li {
+    background: none;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #f30505;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+ text-align: center;
+    align-items: center;
+}
+
+/* Estilo para botones de acción en cada tarea (por ejemplo, eliminar) */
+.task-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Estilo para el botón de eliminar */
+.task-delete {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.task-delete:hover {
+    background-color: #c0392b;
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1>Lista de Tareas</h1>
+    <h2>Creado Por: TORACO</h2>
+    <form id="taskForm">
+        <input type="text" id="taskInput" placeholder="Agregar una tarea..." />
+        <button type="submit">Agregar</button>
+    </form>
+    <ul id="taskList">
+        <!-- Aquí se mostrarán las tareas -->
+    </ul>
+</body>
+</html>
